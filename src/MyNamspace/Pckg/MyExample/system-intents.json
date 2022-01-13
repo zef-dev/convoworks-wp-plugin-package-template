@@ -1,0 +1,42 @@
+{
+    "MyExampleIntent": [
+        {
+            "platforms": [
+                "amazon",
+                "dialogflow"
+            ],
+            "definition": {
+                "name": "MyExampleIntent",
+                "type": "custom",
+                "utterances": [
+                    {
+                        "raw": "get me Example One",
+                        "model": [
+                            {
+                                "text": "get me"
+                            },
+                            {
+                                "text": "Example One",
+                                "type": "@convo-core.any",
+                                "slot_value": "ExampleName"
+                            }
+                        ]
+                    },
+                    {
+                        "raw": "get me Example Two",
+                        "model": [
+                            {
+                                "text": "get me"
+                            },
+                            {
+                                "text": "Example Two",
+                                "type": "@convo-core.any",
+                                "slot_value": "ExampleName"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

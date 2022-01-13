@@ -1,0 +1,10 @@
+{
+    "namespace": "my-namespace-my-package",
+    "author": "ZEF Development",
+    "email": "mark@zefdev.com",
+    "source_for": [
+        "functions", "intents", "entities", "templates"
+    ],
+    "description": "Contains elements, entities, and intents for the services which use the Simply Schedule Appointments plugin.",
+    "stability": "stable"
+}

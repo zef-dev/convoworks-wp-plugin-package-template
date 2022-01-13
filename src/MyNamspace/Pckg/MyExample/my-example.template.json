@@ -1,0 +1,163 @@
+{
+	"template_id": "my-example-template",
+	"name": "My Example Template",
+	"description": "My Example service template with example element, intents, entities and function.",
+	"service": {
+        "service_id": "my-example-from-template",
+        "convo_service_version": 34,
+        "packages": [
+            "convo-core",
+            "my-namespace-my-package"
+        ],
+        "contexts": [],
+        "variables": {
+            "APP_NAME": "My Example"
+        },
+        "preview_variables": [],
+        "entities": [],
+        "intents": [
+            {
+                "name": "TestIntent",
+                "utterances": [
+                    {
+                        "raw": "test some example",
+                        "model": [
+                            {
+                                "text": "test"
+                            },
+                            {
+                                "type": "my-namespace-my-package.EntityName",
+                                "text": "some example",
+                                "slot_value": "EntityName"
+                            }
+                        ]
+                    }
+                ],
+                "type": "custom"
+            }
+        ],
+        "blocks": [
+            {
+                "class": "\\Convo\\Pckg\\Core\\Elements\\ConversationBlock",
+                "namespace": "convo-core",
+                "properties": {
+                    "block_id": "home",
+                    "role": "conversation_block",
+                    "name": "Home",
+                    "elements": [
+                        {
+                            "class": "\\Convo\\Pckg\\Core\\Elements\\SetParamElement",
+                            "namespace": "convo-core",
+                            "properties": {
+                                "scope_type": "request",
+                                "parameters": "service",
+                                "properties": {
+                                    "example_text": "${my_example_function(['test'])}"
+                                },
+                                "_component_id": "slrmc57c-33kx-etgq-tkp5-akyiahglenvb"
+                            }
+                        },
+                        {
+                            "class": "\\Convo\\Pckg\\Core\\Elements\\TextResponseElement",
+                            "namespace": "convo-core",
+                            "properties": {
+                                "type": "default",
+                                "alexa_domain": "normal",
+                                "alexa_emotion": "neutral",
+                                "alexa_emotion_intensity": "medium",
+                                "text": "Hello world!",
+                                "append": false,
+                                "_component_id": "b05130c9-6a20-e749-f96d-cea77304d330"
+                            }
+                        },
+                        {
+                            "class": "\\MyNamespace\\Pckg\\MyExample\\MyExampleElement",
+                            "namespace": "my-namespace-my-package",
+                            "properties": {
+                                "text": "casdfasdasd",
+                                "_component_id": "zjy30ecy-l75x-ygn8-s1pb-a59lcwnlfzbi"
+                            }
+                        }
+                    ],
+                    "processors": [
+                        {
+                            "class": "\\Convo\\Pckg\\Core\\Processors\\SimpleProcessor",
+                            "namespace": "convo-core",
+                            "properties": {
+                                "name": null,
+                                "ok": [
+                                    {
+                                        "class": "\\Convo\\Pckg\\Core\\Elements\\TextResponseElement",
+                                        "namespace": "convo-core",
+                                        "properties": {
+                                            "type": "default",
+                                            "text": "This is My Example.",
+                                            "append": false,
+                                            "alexa_domain": "normal",
+                                            "alexa_emotion": "neutral",
+                                            "alexa_emotion_intensity": "medium",
+                                            "_component_id": "yyohxwvq-eujo-uxsm-qv0j-qgantyec4lgx"
+                                        }
+                                    }
+                                ],
+                                "request_filters": [
+                                    {
+                                        "class": "\\Convo\\Pckg\\Core\\Filters\\IntentRequestFilter",
+                                        "namespace": "convo-core",
+                                        "properties": {
+                                            "name": null,
+                                            "readers": [
+                                                {
+                                                    "class": "\\Convo\\Pckg\\Core\\Filters\\ConvoIntentReader",
+                                                    "namespace": "convo-core",
+                                                    "properties": {
+                                                        "intent": "my-namespace-my-package.MyExampleIntent",
+                                                        "required_slots": "",
+                                                        "values": [],
+                                                        "rename": [],
+                                                        "_component_id": "ym883pom-2eej-oovk-lbdp-p2x7f55par5n"
+                                                    }
+                                                },
+                                                {
+                                                    "class": "\\Convo\\Pckg\\Core\\Filters\\ConvoIntentReader",
+                                                    "namespace": "convo-core",
+                                                    "properties": {
+                                                        "intent": "TestIntent",
+                                                        "required_slots": "",
+                                                        "values": [],
+                                                        "rename": [],
+                                                        "_component_id": "smpqjyqb-flx3-4xlm-ir8n-umpika3vcqxo"
+                                                    }
+                                                }
+                                            ],
+                                            "_component_id": "lqbh2lne-wgid-kiwe-t16g-tytzsvxpe59o"
+                                        }
+                                    }
+                                ],
+                                "_component_id": "6jp8sfqe-8tkh-efbr-o5tg-tanqbn9foldw"
+                            }
+                        }
+                    ],
+                    "fallback": [
+                        {
+                            "class": "\\Convo\\Pckg\\Core\\Elements\\TextResponseElement",
+                            "namespace": "convo-core",
+                            "properties": {
+                                "type": "default",
+                                "text": "Sorry I can't help.",
+                                "append": false,
+                                "alexa_domain": "normal",
+                                "alexa_emotion": "neutral",
+                                "alexa_emotion_intensity": "medium",
+                                "_component_id": "wdge7zbg-fi89-neo9-cztr-j6f70q0adknl"
+                            }
+                        }
+                    ],
+                    "_component_id": "bcb7ef9b-d310-8265-d574-15b2422fd7a2"
+                }
+            }
+        ],
+        "fragments": [],
+        "properties": []
+    }
+}

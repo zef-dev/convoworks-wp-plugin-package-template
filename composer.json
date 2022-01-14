@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "MyNamespace\\Pckg\\MyExample\\": "src/MyNamspace/Pckg/MyExample"
+            "MyNamespace\\Pckg\\MyExample\\": "src/MyNamespace/Pckg/MyExample"
         }
     },
     "config": {

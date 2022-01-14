@@ -3,7 +3,7 @@
     "author": "ZEF Development",
     "email": "mark@zefdev.com",
     "source_for": [
-        "functions", "intents", "entities", "templates"
+        "functions", "intents", "entities", "templates", "elements"
     ],
     "description": "Contains elements, entities, and intents for the services which use the Simply Schedule Appointments plugin.",
     "stability": "stable"

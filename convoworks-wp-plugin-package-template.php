@@ -20,11 +20,13 @@ require_once __DIR__.'/vendor/autoload.php';
  * @param Psr\Container\ContainerInterface $container
  */
 function my_package_registratior($packageProviderFactory, $container) {
-	$packageProviderFactory->registerPackage(
-		new Convo\Core\Factory\FunctionPackageDescriptor(
-			MyExamplePackageDefinition::class,
-			function() use ( $container) {
-				return new MyExamplePackageDefinition( $container->get('logger'));
-			}));
+	if (class_exists('\Convo\Core\Factory\FunctionPackageDescriptor')) {
+		$packageProviderFactory->registerPackage(
+			new Convo\Core\Factory\FunctionPackageDescriptor(
+				MyExamplePackageDefinition::class,
+				function() use ( $container) {
+					return new MyExamplePackageDefinition( $container->get('logger'));
+				}));
+	}
 }
 add_action( 'register_convoworks_package', 'my_package_registratior', 10, 2);

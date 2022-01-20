@@ -5,7 +5,7 @@ namespace MyNamespace\Pckg\MyExample;
 use Convo\Core\Factory\AbstractPackageDefinition;
 use Convo\Core\Intent\EntityModel;
 use Convo\Core\Intent\SystemEntity;
-use Convoworks\Symfony\Component\ExpressionLanguage\ExpressionFunction;
+use Convo\Core\Eval\ExpressionFunction;
 
 class MyExamplePackageDefinition extends AbstractPackageDefinition
 {

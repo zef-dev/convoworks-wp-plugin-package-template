@@ -6,32 +6,45 @@
                 "dialogflow"
             ],
             "definition": {
-                "name": "MyExampleIntent",
+                "name": "GoIntent",
                 "type": "custom",
                 "utterances": [
                     {
-                        "raw": "get me Example One",
+                        "raw": "I want to go left",
                         "model": [
                             {
-                                "text": "get me"
+                                "text": "I want to go"
                             },
                             {
-                                "text": "Example One",
-                                "type": "@convo-core.any",
-                                "slot_value": "ExampleName"
+                                "text": "left",
+                                "type": "@my-namespace-my-package.Direction",
+                                "slot_value": "Direction"
                             }
                         ]
                     },
                     {
-                        "raw": "get me Example Two",
+                        "raw": "go left",
                         "model": [
                             {
-                                "text": "get me"
+                                "text": "go"
                             },
                             {
-                                "text": "Example Two",
-                                "type": "@convo-core.any",
-                                "slot_value": "ExampleName"
+                                "text": "left",
+                                "type": "@my-namespace-my-package.Direction",
+                                "slot_value": "Direction"
+                            }
+                        ]
+                    },
+                    {
+                        "raw": "move left",
+                        "model": [
+                            {
+                                "text": "move"
+                            },
+                            {
+                                "text": "left",
+                                "type": "@my-namespace-my-package.Direction",
+                                "slot_value": "Direction"
                             }
                         ]
                     }

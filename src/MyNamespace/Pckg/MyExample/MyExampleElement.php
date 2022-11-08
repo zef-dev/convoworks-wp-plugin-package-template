@@ -3,7 +3,6 @@
 namespace MyNamespace\Pckg\MyExample;
 
 use Convo\Core\Params\IServiceParamsScope;
-use Convo\Core\Util\ArrayUtil;
 use Convo\Core\Workflow\IConversationElement;
 
 class MyExampleElement extends \Convo\Core\Workflow\AbstractWorkflowContainerComponent implements \Convo\Core\Workflow\IConversationElement

@@ -60,7 +60,7 @@ class MyExampleElement extends \Convo\Core\Workflow\AbstractWorkflowContainerCom
 	{
 		$direction = $this->evaluateString($this->_direction);
 		$statusVar = $this->evaluateString($this->_statusVar);
-		$directionOptions = $this->_evaluateArgs( $this->_directionOptions);
+		$directionOptions = $this->getService()->evaluateArgs( $this->_directionOptions, $this);
 		$directionOptionsValues = array_values($directionOptions);
 
 		$params = $this->getService()->getComponentParams( IServiceParamsScope::SCOPE_TYPE_SESSION, $this);
@@ -98,29 +98,5 @@ class MyExampleElement extends \Convo\Core\Workflow\AbstractWorkflowContainerCom
 		foreach ($selected_flow as $element) {
 			$element->read($request, $response);
 		}
-	}
-
-	private function _evaluateArgs($args)
-	{
-		// $this->_logger->debug( 'Got raw args ['.print_r( $args, true).']');
-		$returnedArgs = [];
-		foreach ($args as $key => $val)
-		{
-			$key	=	$this->evaluateString($key);
-			$parsed =   $this->evaluateString($val);
-
-			if (!ArrayUtil::isComplexKey($key))
-			{
-				$returnedArgs[$key] = $parsed;
-			}
-			else
-			{
-				$root = ArrayUtil::getRootOfKey($key);
-				$final = ArrayUtil::setDeepObject($key, $parsed, $returnedArgs[$root] ?? []);
-				$returnedArgs[$root] = $final;
-			}
-		}
-		// $this->_logger->debug( 'Got evaluated args ['.print_r( $returnedArgs, true).']');
-		return $returnedArgs;
 	}
 }
